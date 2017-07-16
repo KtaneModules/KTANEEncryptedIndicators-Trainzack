@@ -1,0 +1,7 @@
+
+{
+	"MaximumPerBomb": 		2,
+	"How To Use":			"If there are more of this widget than the MaximumPerBomb setting, then some 
+							will be unencrypted, and can be treated normally."
+
+}
