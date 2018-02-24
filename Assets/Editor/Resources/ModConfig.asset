@@ -13,5 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: EncryptedIndicators
   title: Encrypted Indicators
+  description: "Because what we needed was harder edgework, this widget aims to make
+    you perpetually unsure of what indicators are present. Included is an appendix
+    page containing a decryption guide.\r\n\r\nNOTE: This widget only works with mod
+    modules. The vanilla modules are not powerful enough to solve the encryption!\r\n\r\nFor
+    your convenience, you can lower the maximum number of encrypted indicators in
+    the settings file. (This won't stop them from spawning, but they will NOT be encrypted!)"
   version: 1
   outputFolder: build
+  previewImage: {fileID: 2800000, guid: 66ad556444e73e547ba25e99944eb514, type: 3}

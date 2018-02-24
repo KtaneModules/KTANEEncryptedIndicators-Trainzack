@@ -83,6 +83,8 @@ public class EncryptedIndicator : MonoBehaviour {
     private void setSolution() {
         int solutionIndex = 0;
         List<char> selections = chars;
+
+        // secondary_label is what we will act as if the letters go outside the range
         string secondary_label = "";
         for (int i = 0; i < 3; i++) {
             int index = Random.Range(0, selections.Count);
@@ -97,19 +99,18 @@ public class EncryptedIndicator : MonoBehaviour {
         actualLabel = getIndicator(solutionIndex, secondary_label);
         lit = (Random.Range(0, 2) == 0);
 
-        string l = (lit) ? "lit" : "unlit";
-        Debug.Log("[EcryptedIndicatorWidget] Randomizing: " + l + " " + visibleText + " acting as " + l + " " + actualLabel);
     }
 
     //This happens when the bomb turns on, don't turn on any lights or unlit shaders until activate
     public void Activate() {
 
-
-
+        string l = (lit) ? "lit" : "unlit";
 
         if (current > max) {
+            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + actualLabel);
             NumberText.text = "" + actualLabel;
         } else {
+            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + visibleText + " acting as " + l + " " + actualLabel);
             NumberText.text = "" + visibleText;
         }
 
@@ -128,7 +129,7 @@ public class EncryptedIndicator : MonoBehaviour {
             return responseStr;
         }
 
-        return "";
+        return null;
     }
 
 
@@ -149,10 +150,10 @@ public class EncryptedIndicator : MonoBehaviour {
             if (modSettings != null) {
                 max = modSettings.getMax();
             } else {
-                Debug.Log("[EcryptedIndicatorWidget] Could not read settings file!");
+                Debug.Log("[EncryptedIndicatorWidget] Could not read settings file!");
             }
         } catch (JsonReaderException e) {
-            Debug.Log("[EcryptedIndicatorWidget] Malformed settings file! " + e.Message);
+            Debug.Log("[EncryptedIndicatorWidget] Malformed settings file! " + e.Message);
         }
 
     }
