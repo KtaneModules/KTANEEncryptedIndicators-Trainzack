@@ -125,6 +125,7 @@ public class EncryptedIndicator : MonoBehaviour {
             Dictionary<string, string> response = new Dictionary<string, string>();
             response.Add("label", actualLabel);
             response.Add("on", (lit) ? "True" : "False");
+            response.Add("display", NumberText.text);
             string responseStr = JsonConvert.SerializeObject(response);
             return responseStr;
         }
