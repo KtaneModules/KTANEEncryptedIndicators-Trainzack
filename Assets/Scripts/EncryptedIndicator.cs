@@ -99,18 +99,21 @@ public class EncryptedIndicator : MonoBehaviour {
         actualLabel = getIndicator(solutionIndex, secondary_label);
         lit = (Random.Range(0, 2) == 0);
 
+        string l = (lit) ? "lit" : "unlit";
+        if (current > max) {
+            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + actualLabel);
+        } else {
+            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + visibleText + " acting as " + l + " " + actualLabel);
+        }
+
     }
 
     //This happens when the bomb turns on, don't turn on any lights or unlit shaders until activate
     public void Activate() {
 
-        string l = (lit) ? "lit" : "unlit";
-
         if (current > max) {
-            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + actualLabel);
             NumberText.text = "" + actualLabel;
         } else {
-            Debug.Log("[EncryptedIndicatorWidget] Randomizing: " + l + " " + visibleText + " acting as " + l + " " + actualLabel);
             NumberText.text = "" + visibleText;
         }
 
